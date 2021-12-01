@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><posts>
+<post><id>1</id><title>The Vienna Hofburg: Austria's Imperial Palace</title><date>2021-09-16</date><country>Austria</country><name>Europe</name><category>Architecture</category></post>
+<post><id>3</id><title>The Pantheon in Rome</title><date>2021-09-17</date><country>Italy</country><name>Europe</name><category>Architecture</category></post>
+<post><id>4</id><title>Colosseum</title><date>2021-09-18</date><country>Italy</country><name>Europe</name><category>Architecture</category></post>
+<post><id>5</id><title>Walled city of Toledo</title><date>2021-09-05</date><country>Spain</country><name>Europe</name><category>Architecture</category></post>
+<post><id>6</id><title>Mont Saint-Michel</title><date>2021-09-02</date><country>France</country><name>Europe</name><category>Architecture</category></post>
+<post><id>8</id><title>Polandâs Crooked Forest</title><date>2021-09-19</date><country>Poland</country><name>Europe</name><category>Nature</category></post>
+<post><id>12</id><title>Sagrada Familia, Barcelona</title><date>2021-10-03</date><country>Spain</country><name>Europe</name><category>Monuments</category></post>
+</posts>
