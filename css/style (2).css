@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+header{
+    font-family: 'Patua One', cursive;
+    background-color: #161616;
+}
+form{
+    font-family: 'Open Sans', sans-serif;
+}
+.respuesta{
+    font-family: 'Open Sans', sans-serif;
+}
+.cabeza{
+    font-family: 'Patua One', cursive;
+    background-color: #161616;
+}
+.boton{
+    font-family: 'Patua One', cursive;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }
+ .dropdown2:hover .dropdown-menu2 {
+    display: block;
+}
+.destination{
+    background-color: #161616;
+} 
+.destination li a:hover{
+    color: #6B6B6B;
+}
+.izq a:hover{
+    color: #6B6B6B;
+
+}
+.menu-movil{
+      display: block;
+      width: 100%;
+      position:absolute ;
+      left: -3000px;
+      z-index: inherit;
+      font-family: 'Patua One', cursive;
+    }
+#ham{
+    position:absolute ;
+    left:-1000px ;
+}
+
+#child{
+    display: none;
+}
+
+.banner{
+  background-image: url('../img/beach.webp');
+  height: 320px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Patua One', cursive;
+}
+@media only screen and (max-width: 750px) {
+     #ham{
+         left: 5px;
+     }
+    
+  }

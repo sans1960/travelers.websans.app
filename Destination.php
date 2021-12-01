@@ -1,5 +1,9 @@
 <?php include 'templates/header.php';?>
 <div class="container w-3/4 mx-auto mt-5">
+<div class="container flex justify-end mt-5 mb-5">
+    <a href="formularios/europe.php">Planning your trip</a>
+
+  </div>
 <?php
   
   $destinations = new Destination();
