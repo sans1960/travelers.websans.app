@@ -172,6 +172,7 @@ function sliderButton1(){
       
         <?php
 if (isset($_POST['send'])) {
+    $trait = $_POST['trait'];
     $code = $_POST['code'];
     $pagina =$_POST['pagina'];
     $name = $_POST['name'];
@@ -261,7 +262,7 @@ if (isset($_POST['send'])) {
     $subject = "Contact for trip";
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $message2 ="Thanks you : ".$name." ".$surname." "."</p>";
+    $message2 ="Thanks you : ".$trait." ".$name." ".$surname." "."</p>";
     mail($to, $subject, $message2, $headers);  
 
     $htmlContent =  '<html lang="en">
@@ -359,22 +360,23 @@ if (isset($_POST['send'])) {
    
 }
 ?>
-         <div class="sliderAx h-96 mt-5" id="carrusel">
-      <div id="slider-1" class="container mx-auto">
-        <div class="bg-cover bg-center  h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1491557345352-5929e343eb89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-       <div class="md:w-1/2">
-        <p class="font-bold text-sm uppercase">Thanks you</p>
-        <p class="text-3xl font-bold"><?php echo $name;?></p>
+         <div class="sliderAx h-96 " id="carrusel">
+      <div id="slider-1" class="">
+        <div class="bg-cover bg-center  h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1491900177661-4e1cd2d7cce2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+        <p class="font-bold text-3xl text-green-600 text-center uppercase">Thanks you</p>
+        <p class="text-4xl text-center text-green-600 font-bold"><?php echo $trait;?> <?php echo $name;?></p>    
+  <p class="font-bold text-2xl text-green-600 text-center uppercase">You will reciived a email</p>
        
-        </div>  
     </div> <!-- container -->
       <br>
       </div>
 
-      <div id="slider-2" class="container mx-auto">
+      <div id="slider-2" class="">
         <div class="bg-cover bg-top  h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1546610072-90a8cdd6aa4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-       
-  <p class="font-bold text-sm uppercase">You will reciived a email</p>
+
+     <p class="font-bold text-3xl text-center uppercase">Thanks you</p>
+        <p class="text-3xl text-center font-bold"><?php echo $trait;?> <?php echo $name;?></p>    
+  <p class="font-bold text-2xl text-center uppercase">You will reciived a email</p>
        
        
       
@@ -383,9 +385,12 @@ if (isset($_POST['send'])) {
       <br>
       </div>
     </div>
- <div  class="flex justify-between w-12 mx-auto pb-2">
+ <div  class="flex justify-between w-12 mx-auto mt-4 pb-2">
         <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
     <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+  </div>
+  <div class="flex justify-center mt-5">
+      <a class="px-8 py-2 tracking-wider bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white boton" href="index.php">Back</a>
   </div>
         
       
