@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);	
+
+html {
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #2a2a2a;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+}
+
+
+#slider {
+  overflow: hidden;
+  width: 100vw;
+}
+
+#slider ul {
+  list-style: none;
+}
+
+#slider ul li {
+  height: 500px;
+  width: 100vw;
+  float: left;
+}
+
+#slider ul li img {
+  height: 600px;
+  width: 100vw;
+} 
+
+a.control_prev, a.control_next {
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  top: 40%;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  transition: all 0.2s ease;
+}
+
+a.control_next {
+  right: 0;
+}
+
+/* Dot Indicators */
+#s1 {
+  padding: 6px;
+  left: 50%;
+  bottom: 25px;
+  margin-left: -36px;
+  border-radius: 20px;
+  z-index: 999;
+}
+
+#s2 {
+  padding: 6px;
+  left: 50%;
+  bottom: 25px;
+  margin-left: -12px;
+  border-radius: 20px;
+  z-index: 999;
+}
+
+#s3 {
+  padding: 6px;
+  left: 50%;
+  bottom: 25px;
+  margin-left: 12px;
+  border-radius: 20px;
+  z-index: 999;
+}
+
+#s4 {
+  padding: 6px;
+  left: 50%;
+  bottom: 25px;
+  margin-left: 36px;
+  border-radius: 20px;
+  z-index: 999;
+}
+
+.active {
+    background-color: #48BB78;
+  opacity: 1;
+}
+
+#Slide1:checked + #s1 {
+  background-color: #48BB78;
+  opacity: 1;
+}
+
+#Slide2:checked + #s2 {
+    background-color: #48BB78;
+  opacity: 1;
+}
+
+#Slide3:checked + #s3 {
+    background-color: #48BB78;
+  opacity: 1;
+}
+
+#Slide4:checked + #s4 {
+    background-color: #48BB78;
+  opacity: 1;
+}
+
+    </style>
+          <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
+          <script>
+              jQuery(document).ready(function ($) {
+    
+    var interval = setInterval(function () {
+          moveRight();
+      }, 3000);
+    
+      var slideCount = $('#slider ul li').length;
+      var slideWidth = $('#slider ul li').width();
+      var slideHeight = $('#slider ul li').height();
+      var sliderUlWidth = slideCount * slideWidth;
+      
+      $('#slider').css({ width: slideWidth, height: slideHeight });
+      
+      $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+      
+      $('#slider ul li:last-child').prependTo('#slider ul');
+    
+      function moveLeft() {
+          $('#slider ul').animate({
+              left: + slideWidth
+          }, 200, function () {
+              $('#slider ul li:last-child').prependTo('#slider ul');
+              $('#slider ul').css('left', '');
+          });
+      };
+    
+      function moveRight() {
+          $('#slider ul').animate({
+              left: - slideWidth
+          }, 200, function () {
+              $('#slider ul li:first-child').appendTo('#slider ul');
+              $('#slider ul').css('left', '');
+    
+          });
+      };
+    
+      $('a.control_prev').click(function () {
+          moveLeft();
+      });
+    
+      $('a.control_next').click(function () {
+          moveRight();
+      });
+    
+    
+    // Doesn't work quite yet (toggles random slide and only onClick) -->
+    
+    // $('input').click(function() {
+    //  $('label').toggleClass('checked');
+    //  moveRight();
+    // });
+    
+    $("#slider ul").click(function(){
+      //Stop the carousel on click
+      clearInterval(interval);
+    });
+    }); 
+          </script>
+</head>
+<body>
+    <div id="slider" class="relative">
+        <!-- <a href="#" class="control_next absolute lg:block p-4 m-4 z-40 cursor-pointer text-white hover:text-green-500">		  
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="32px">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+      </a>
+        <a href="#" class="control_prev absolute lg:block p-4 m-4 z-40 cursor-pointer text-white hover:text-green-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="32px">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+        </a> -->
+        <ul class="relative m-0 p-0 h-1/2">
+          <li class="relative block m-0 p-0 text-center">
+             
+                <div class="bg-cover bg-center  h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1491900177661-4e1cd2d7cce2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+                    <h1 class="text-white text-4xl font-bold ">Thanks you</h1>
+                <h1 class="text-white text-5xl font-bold ">Mr Agustin</h1>
+                <h1 class="text-white text-3xl font-bold "> You will recive an email</h1>
+                <div class="flex justify-center mt-5 text-dark">
+                    <a class="px-8 py-2 tracking-wider  bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white boton" href="index.php">Back</a>
+                </div>
+
+                </div>
+            </li>
+            <li class="relative block m-0 p-0 text-center">
+             
+                <div class="bg-cover bg-center   h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+                <h1 class="text-white text-4xl font-bold ">Thanks you</h1>
+                <h1 class="text-white text-5xl font-bold ">Mr Agustin</h1>
+                <h1 class="text-white text-3xl font-bold "> You will recive an email</h1>
+                <div class="flex justify-center mt-5 text-dark">
+                    <a class="px-8 py-2 tracking-wider  bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white boton" href="index.php">Back</a>
+                </div>
+                </div>
+            </li>
+            <li class="relative block m-0 p-0 text-center">
+             
+                <div class="bg-cover bg-center  h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+                    <h1 class="text-white text-4xl font-bold ">Thanks you</h1>
+                <h1 class="text-white text-5xl font-bold ">Mr Agustin</h1>
+                <h1 class="text-white text-3xl font-bold "> You will recive an email</h1>
+                <div class="flex justify-center mt-5 text-dark">
+                    <a class="px-8 py-2 tracking-wider  bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white boton" href="index.php">Back</a>
+                </div>
+
+                </div>
+            </li>
+            <li class="relative block m-0 p-0 text-center">
+             
+                <div class="bg-cover bg-center  h-96  py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1471623432079-b009d30b6729?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+                    <h1 class="text-white text-4xl font-bold ">Thanks you</h1>
+                    <h1 class="text-white text-5xl font-bold ">Mr Agustin</h1>
+                    <h1 class="text-white text-3xl font-bold "> You will recive an email</h1>
+                    <div class="flex justify-center mt-5 text-dark">
+                        <a class="px-8 py-2 tracking-wider  bg-white border-2 border-gray-900 cursor-pointer rounded-3xl hover:bg-gray-800 hover:text-white boton" href="index.php">Back</a>
+                    </div>
+
+                </div>
+            </li>
+          <!-- <li class="relative block m-0 p-0 text-center">
+             
+              <img src="https://source.unsplash.com/random/1280x500/?animals" alt=""></li>
+          <li class="relative block m-0 p-0 text-center"><img src="https://source.unsplash.com/random/1280x500/?nature" alt=""></li>
+          <li class="relative block m-0 p-0 text-center"><img src="https://source.unsplash.com/random/1280x500/?forest" alt=""></li> -->
+        </ul>  
+        
+        <!-- Dot Indicators -->
+        <!-- <input checked type="radio" name="slide" id="Slide1" />
+          <label class="bg-black opacity-50 hover:bg-green-500 hover:opacity-1 absolute cursor-pointer" for="Slide1" id="s1"></label>
+        <input type="radio" name="slide" id="Slide2" />
+          <label class="bg-black opacity-50 hover:bg-green-500 hover:opacity-1 absolute cursor-pointer" for="Slide2" id="s2"></label>
+        <input type="radio" name="slide" id="Slide3" />
+          <label class="bg-black opacity-50 hover:bg-green-500 hover:opacity-1 absolute cursor-pointer" for="Slide3" id="s3"></label>
+        <input type="radio" name="slide" id="Slide4" />
+          <label class="bg-black opacity-50 hover:bg-green-500 hover:opacity-1 absolute cursor-pointer" for="Slide4" id="s4"></label> -->
+      </div>
+
+</body>
+</html>

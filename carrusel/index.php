@@ -98,7 +98,7 @@
       </div>
       <div class="container w-3/4 mx-auto">
         <h1 class="mt-5 mb-5 text-lg text-center text-gray-500">Inquire about a taylor-made trip with us</h1>
-        <form action="form.php" method="post" class="w-full">
+        <form action="" method="post" class="w-full">
           <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Yours details</h1>
           <div class="flex flex-col">
             <div class="flex  text-gray-400 mt-5">
