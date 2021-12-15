@@ -98,9 +98,17 @@
       </div>
       <div class="container w-3/4 mx-auto">
         <h1 class="mt-5 mb-5 text-lg text-center text-gray-500">Inquire about a taylor-made trip with us</h1>
-        <form action="procesar.php" method="post" class="w-full">
+        <form action="procesareurope.php" method="post" class="w-full">
           <h1 class="ml-4 text-2xl text-gray-500 md:ml-0">Yours details</h1>
           <div class="flex flex-col">
+          <div class="flex  text-gray-400 mt-5">
+              <label for="trait" class="mr-5 p-2">Traitement</label>
+              <select name="trait" id="trait" class="p-2 border">
+                <option value="">Choose a traitment</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+              </select>
+            </div>
             <input type="hidden" name="code" value="<?php echo uniqid();?>">
             <input type="hidden" name="pagina" value="Europe">
             <div class="grid grid-cols-1 gap-4 mt-5 ml-4 mr-4 md:grid-cols-2 md:ml-0 md:mr-0">
