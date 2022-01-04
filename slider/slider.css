@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 .Slider {
     /* color: white;
     font-family: arial, san-serif;
@@ -32,4 +33,7 @@
   }
   .Slider .Slider-slide.show {
     opacity: 1;
+  }
+  .texto{
+    font-family:  'Patua One', cursive;
   }
